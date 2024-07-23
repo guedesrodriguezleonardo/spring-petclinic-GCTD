@@ -235,7 +235,7 @@
                 <encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
                 <java.source>${java.version}</java.source>
                 <java.target>${java.version}</java.target>
-              </additional>
+              </additionalProperties>
             </configuration>
           </execution>
         </executions>
