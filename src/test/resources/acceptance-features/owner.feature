@@ -8,7 +8,7 @@ Feature: Registro de Dueños de Mascotas
         And el veterinario ingresa "Springfield" en el campo City
         And el veterinario ingresa "1234567890" en el campo Telephone
         And el veterinario hace clic en el botón Add Owner
-        Then el sistema debería mostrar el mensaje "New Owner Created" y los datos del dueño agregado
+        Then el sistema debería mostrar el mensaje "New Owner Created"
         And muestra el texto "John Doe" en el campo Name
         And muestra el texto "123 Main St" en el campo Address
         And muestra el texto "Springfield" en el campo City
@@ -43,3 +43,21 @@ Feature: Registro de Dueños de Mascotas
         And muestra el texto "2693 Commerce St." en el campo Address
         And muestra el texto "McFarland" en el campo City
         And muestra el texto "6085558763" en el campo Telephone
+
+    Scenario Outline: Editar un dueño de mascota
+        Given el veterinario está en la página de búsqueda de dueños de mascotas
+        And el veterinario ingresa "<LastName>" en el campo Last Name
+        And el veterinario hace clic en el botón Find Owner
+        And el sistema debería dirigir a la pantalla de detalles del dueño de mascota
+        When el veterinario hace clic en el botón Edit Owner
+        And el veterinario ingresa "<NewCity>" en el campo City
+        And el veterinario ingresa "<NewTelephone>" en el campo Telephone
+        And el veterinario hace clic en el botón Update Owner
+        Then el sistema debería mostrar el mensaje "Owner Values Updated"
+        And muestra el texto "<NewCity>" en el campo City
+        And muestra el texto "<NewTelephone>" en el campo Telephone
+
+        Examples:
+            | LastName | NewCity      | NewTelephone |
+            | Black    | Lakeridge    | 0987654321   |
+            | Black    | Monona       | 6085555387   |
