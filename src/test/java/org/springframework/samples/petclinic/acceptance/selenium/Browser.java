@@ -321,6 +321,8 @@ public class Browser {
 				Thread.sleep(w);
 			}
 			catch (InterruptedException e) {
+				System.err.println("Thread was interrupted while sleeping: " + e.getMessage());
+				Thread.currentThread().interrupt();
 			}
 		}
 	}

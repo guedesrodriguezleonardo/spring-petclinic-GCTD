@@ -18,9 +18,9 @@ import io.cucumber.spring.CucumberContextConfiguration;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class OwnerSteps {
 
-	private static String OWNER_FORM_TITLE = "Owner";
+	private static String ownerFormTitle = "Owner";
 
-	private static String OWNER_DETAILS_TITLE = "Owner Information";
+	private static String ownerDetailsTitle = "Owner Information";
 
 	@LocalServerPort
 	protected int port;
@@ -54,7 +54,7 @@ public class OwnerSteps {
 	public void goToFormAddOwner() {
 		site.navBar.findOwners();
 		site.ownerList.addOwner();
-		site.navBar.checkTitle(OWNER_FORM_TITLE);
+		site.navBar.checkTitle(ownerFormTitle);
 	}
 
 	@Given("el veterinario está en la página de búsqueda de dueños de mascotas")
@@ -149,7 +149,7 @@ public class OwnerSteps {
 
 	@Then("el sistema debería dirigir a la pantalla de detalles del dueño de mascota")
 	public void owmerInfoCheckTitle() {
-		site.navBar.checkTitle(OWNER_DETAILS_TITLE);
+		site.navBar.checkTitle(ownerDetailsTitle);
 	}
 
 }
