@@ -34,15 +34,23 @@ Feature: Registro de Dueños de Mascotas
             | John       | Doe       | 123 Main St | Springfield | 12345      | Telephone  | Telephone must be a 10-digit number |
             | John       | Doe       | 123 Main St | Springfield | abcdefghij | Telephone  | Telephone must be a 10-digit number |
 
-    Scenario: Buscar un dueño de mascota por apellido
+    Scenario Outline: Buscar un dueño de mascota por apellido
         Given el veterinario está en la página de búsqueda de dueños de mascotas
-        When el veterinario ingresa "Rodriquez" en el campo Last Name
+        When el veterinario ingresa "<LastName>" en el campo Last Name
         And el veterinario hace clic en el botón Find Owner
         Then el sistema debería dirigir a la pantalla de detalles del dueño de mascota
-        And muestra el texto "Eduardo Rodriquez" en el campo Name
-        And muestra el texto "2693 Commerce St." en el campo Address
-        And muestra el texto "McFarland" en el campo City
-        And muestra el texto "6085558763" en el campo Telephone
+        And muestra el texto "<Name>" en el campo Name
+        And muestra el texto "<Address>" en el campo Address
+        And muestra el texto "<City>" en el campo City
+        And muestra el texto "<Telephone>" en el campo Telephone
+
+        Examples:
+            | LastName  | Name              | Address               | City      | Telephone  |
+            | Rodriquez | Eduardo Rodriquez | 2693 Commerce St.     | McFarland | 6085558763 |
+            | Black     | Jeff Black        | 1450 Oak Blvd.        | Monona    | 6085555387 |
+            | Escobito  | Maria Escobito    | 345 Maple St.         | Madison   | 6085557683 |
+            | Estaban   | Carlos Estaban    | 2335 Independence La. | Waunakee  | 6085555487 |
+            | Franklin  | George Franklin   | 110 W. Liberty St.    | Madison   | 6085551023 |
 
     Scenario Outline: Editar un dueño de mascota
         Given el veterinario está en la página de búsqueda de dueños de mascotas
