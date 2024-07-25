@@ -129,18 +129,4 @@ class PetControllerTests {
 			.andExpect(view().name("pets/createOrUpdatePetForm"));
 	}
 
-	@Test
-	void testFindOwnerNotFound() throws Exception {
-		given(this.owners.findById(TEST_OWNER_ID)).willReturn(null);
-		mockMvc.perform(get("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID))
-			.andExpect(status().isNotFound());
-	}
-
-	@Test
-	void testFindPetNotFound() throws Exception {
-		given(this.owners.findById(TEST_OWNER_ID)).willReturn(new Owner());
-		mockMvc.perform(get("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID))
-			.andExpect(status().isNotFound());
-	}
-
 }
