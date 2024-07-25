@@ -149,6 +149,18 @@ public class Browser {
 	}
 
 	/**
+	 * Limpia el contenido del elemento ubicado con el selector.
+	 * @param selector Selector de tipo id, css o xpath
+	 * @param params Valores a usar en la interpolación
+	 * @return void
+	 * @throws IllegalStateException si el selector no indica el tipo
+	 * @throws IllegalStateException si el tipo de selector no está soportado
+	 */
+	public void clear(String selector, Object... params) {
+		find(selector, params).clear();
+	}
+
+	/**
 	 * Realiza click en el elemento ubicado con selector
 	 * @param selector Selector de tipo id, css o xpath
 	 * @param params Valores a usar en la interpolación

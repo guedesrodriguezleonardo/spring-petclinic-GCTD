@@ -34,22 +34,27 @@ public class OwnerForm {
 	}
 
 	public void setFirstName(String value) {
+		this.browser.clear(FIELD_FIRST_NAME);
 		this.browser.write(FIELD_FIRST_NAME, value);
 	}
 
 	public void setLastName(String value) {
+		this.browser.clear(FIELD_LAST_NAME);
 		this.browser.write(FIELD_LAST_NAME, value);
 	}
 
 	public void setAddress(String value) {
+		this.browser.clear(FIELD_ADDRESS);
 		this.browser.write(FIELD_ADDRESS, value);
 	}
 
 	public void setCity(String value) {
+		this.browser.clear(FIELD_CITY);
 		this.browser.write(FIELD_CITY, value);
 	}
 
 	public void setTelephone(String value) {
+		this.browser.clear(FIELD_TELEPHONE);
 		this.browser.write(FIELD_TELEPHONE, value);
 	}
 

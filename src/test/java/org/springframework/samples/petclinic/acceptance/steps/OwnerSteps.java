@@ -101,6 +101,16 @@ public class OwnerSteps {
 		site.ownerList.findOwner();
 	}
 
+	@When("el veterinario hace clic en el botón Edit Owner")
+	public void editOwner() {
+		site.ownerDetails.editOwner();
+	}
+
+	@When("el veterinario hace clic en el botón Update Owner")
+	public void updateOwner() {
+		site.ownerDetails.updateOwner();
+	}
+
 	/**
 	 * Mensaje de error bajo un campo del formulario
 	 */
@@ -112,7 +122,7 @@ public class OwnerSteps {
 	/**
 	 * Mensaje de confirmación sobre los datos, y tabla de datos que fueron ingresados
 	 */
-	@Then("el sistema debería mostrar el mensaje {string} y los datos del dueño agregado")
+	@Then("el sistema debería mostrar el mensaje {string}")
 	public void checkSuccessMessage(String successMessage) {
 		site.ownerDetails.checkSuccessMessage(successMessage);
 	}

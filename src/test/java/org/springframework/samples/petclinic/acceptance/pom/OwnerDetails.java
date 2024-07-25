@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class OwnerDetails {
 
+	private static String editOwnerBtn = "xpath://a[contains(normalize-space(text()), 'Edit Owner')]";
+
+	private static String updateOwnerBtn = "xpath://button[contains(text(), 'Update Owner')]";
+
 	private static final String SUCCESS_MESSAGE = "css:#success-message span";
 
 	private static final String CELL_WITH_VALUE = "xpath://table/tbody/tr/th[text()='%s']/following-sibling::td";
@@ -26,6 +30,14 @@ public class OwnerDetails {
 	@Autowired
 	public OwnerDetails(Browser wb) {
 		this.browser = wb;
+	}
+
+	public void editOwner() {
+		this.browser.click(editOwnerBtn);
+	}
+
+	public void updateOwner() {
+		this.browser.click(updateOwnerBtn);
 	}
 
 	public String getSuccessMessage() {
