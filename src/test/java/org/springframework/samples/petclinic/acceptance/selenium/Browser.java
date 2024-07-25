@@ -213,10 +213,10 @@ public class Browser {
 				return By.cssSelector(bySelector);
 			case "xpath":
 				return By.xpath(bySelector);
+			default:
+				throw new IllegalStateException(
+						"Se esperaba un selector indicando strategy:selector, la estrategia no existe " + selector);
 		}
-
-		throw new IllegalStateException(
-				"Se esperaba un selector indicando stragegy:selector, la estrategia no existe " + selector);
 	}
 
 	private static void setUpWebDriver(String browser) {
@@ -247,9 +247,9 @@ public class Browser {
 				return buildChrome(headless, lang);
 			case "firefox":
 				return buildFirefox(headless, lang);
+			default:
+				throw new IllegalStateException("No es posible construir el browser " + browser);
 		}
-
-		throw new IllegalStateException("No es posible construir el browser " + browser);
 	}
 
 	/**
