@@ -1,4 +1,4 @@
-Feature: Registro de Dueños de Mascotas
+Feature: Registro y Gestión de Dueños de Mascotas
 
     Scenario: Registrar un dueño de mascota con todos los datos válidos
         Given el veterinario está en la página de registro de dueños de mascotas
